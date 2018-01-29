@@ -1,7 +1,7 @@
 package com.inabif.repository;
 
 import java.io.Serializable;
-import java.util.Date;
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -34,7 +34,7 @@ public interface BienRepository extends JpaRepository<Bien,Serializable>{
 	@Query(value=QUERY_REGISTROS_BY_YEAR_1,nativeQuery=true)	
 	List<Bien> findBienesByYear(@Param("ano") int ano);
 	
-	public abstract Bien findByIdbien(int idbien);
+	//public abstract Bien findByIdbien(int idbien);
 	
 	//public abstract Bien findByFerfechaferiado(Date fechaferiado);
 	

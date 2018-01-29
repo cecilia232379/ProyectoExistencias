@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.web.servlet.ModelAndView;
 
-import com.inabif.entity.Bien;
 import com.inabif.model.BienModel;
 
 public interface BienService {

@@ -3,7 +3,6 @@ package com.inabif.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,79 +11,65 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 
 
 @Entity
-@Table(name="TXPARTIDA")
-public class Partida {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDAS_SEQ")
-    @SequenceGenerator(sequenceName = "TXPARTIDA_SEQ", allocationSize = 1, name = "PARTIDAS_SEQ")
-	private int idpartida;
-	
-	@Override
-	  public String toString() {
-	      return "TXPARTIDA{" +
-	              "partida=" + partida +
-	              ", bienes=" + bienes +
-	              '}';
-	  }
-	
-	@OneToMany(mappedBy="partida",fetch = FetchType.LAZY, cascade = CascadeType.ALL)//un cliente con muchas facturas
-	private List<Bien> bienes;
-	
-	
+@Table(name="txpartidas")
+public class Partida implements Serializable {
 
 	public Partida(){
 		bienes = new ArrayList<Bien>();
 	}
-	/*@OneToMany(mappedBy = "TXPARTIDA")
-	@JoinColumn(name = "partida")
-    private List<Bien> bienes;*/
 	
+	@Id
+	@Column(name="npar_partida_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idPartida;	
+		
+	@OneToMany(mappedBy="partida",fetch = FetchType.LAZY, cascade = CascadeType.ALL)//una partida con muchos bienes
+	private List<Bien> bienes;	//mappedBy se pone el combre del atributo que relaciona en la otra clase. 	private Partida partida;
 
-	@Column(name="partida")
-	private String partida;
+	@Column(name="cpar_partida_cod")
+	private String partidaCod;
 	
-	@Column(name="pardescripcion")
-	private String pardescripcion;
+	@Column(name="cpar_descripcion")
+	private String descripcion;
 
-	public int getIdpartida() {
-		return idpartida;
+	@Column(name="fpar_fecha_creacion")
+	private String fechaCreacion;
+	
+	//@Temporal(TemporalType.TIME)
+	@Column(name="hpar_hora_creacion")
+	//@DateTimeFormat(pattern="HHmmss")
+	private String horaCreacion;
+	
+	//@NotEmpty
+	@Column(name="fpar_fecha_modificacion")
+	private String fechaModificacion;
+	
+	//@NotEmpty
+	@Column(name="hpar_hora_modificacion")
+	private String horaModificacion;
+	
+	@Column(name="cpar_usuario")
+	private String usuario;
+
+	private static final long serialVersionUID = 1L;
+	
+	@Override
+	public String toString() {
+	      return "TXPARTIDA{" +
+	              "partida=" + partidaCod +
+	              ", bienes=" + bienes +
+	              '}';
 	}
-
-	public void setIdpartida(int idpartida) {
-		this.idpartida = idpartida;
-	}	
+	
 	
 	public void addBien(Bien bien){
 		bienes.add(bien);
-	}
-
-	public String getPartida() {
-		return partida;
-	}
-
-	public void setPartida(String partida) {
-		this.partida = partida;
-	}
-
-	public String getPardescripcion() {
-		return pardescripcion;
-	}
-
-	public void setPardescripcion(String pardescripcion) {
-		this.pardescripcion = pardescripcion;
-	}
+	}	
 
 	public List<Bien> getBienes() {
 		return bienes;
@@ -93,5 +78,85 @@ public class Partida {
 	public void setBienes(List<Bien> bienes) {
 		this.bienes = bienes;
 	}
+
+
+	public Long getIdPartida() {
+		return idPartida;
+	}
+
+
+	public void setIdPartida(Long idPartida) {
+		this.idPartida = idPartida;
+	}
+
+
+	public String getPartidaCod() {
+		return partidaCod;
+	}
+
+
+	public void setPartidaCod(String partidaCod) {
+		this.partidaCod = partidaCod;
+	}
+
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+
+	public String getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+
+	public void setFechaCreacion(String fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+
+	public String getHoraCreacion() {
+		return horaCreacion;
+	}
+
+
+	public void setHoraCreacion(String horaCreacion) {
+		this.horaCreacion = horaCreacion;
+	}
+
+
+	public String getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+
+	public void setFechaModificacion(String fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+
+	public String getHoraModificacion() {
+		return horaModificacion;
+	}
+
+
+	public void setHoraModificacion(String horaModificacion) {
+		this.horaModificacion = horaModificacion;
+	}
+
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}	
 	
 }
