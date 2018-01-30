@@ -110,7 +110,7 @@ $(document).ready(function() {
 
 function openFeriadoModal(){
 	$.ajax({
-		url:"/existencias2/feriado/feriadoform?id=0",
+		url:"/sistalimentos2/feriado/feriadoform?id=0",
 		success:function(data){
 			$("#feriadoModal").html(data);
 			$("#feriadoModal").modal("show");
@@ -119,7 +119,7 @@ function openFeriadoModal(){
 	
 }
 function getFeriadosByYear(year){
-	var url = '/existencias2/feriado/listar/'+year;
+	var url = '/sistalimentos2/feriado/listar/'+year;
 	//loading gif
 	//var data = {}
 	$("#grilla_feriado").load(url);

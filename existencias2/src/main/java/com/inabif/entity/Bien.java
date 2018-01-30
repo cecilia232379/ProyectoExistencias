@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -16,19 +17,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="txbienes")
-public class Bien implements Serializable {	
+public class Bien  implements Serializable{
 
 	@Id
 	@NotEmpty
 	@Column(name="nbn_bien_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BIEN_SEQ")
+    @SequenceGenerator(sequenceName = "TXBIENES_SEQ", allocationSize = 1, name = "BIEN_SEQ")
 	private Long idBien;	
 
 	@ManyToOne(fetch = FetchType.LAZY)//muchos bienes pueden tener una sola partida, y una partida puede tener muchos bienes
 	private Partida partida;
 			
-	@Column(name="nbn_partida_id")
-	private int idPartida;
+	//@Column(name="nbn_partida_id")
+	//private int idPartida;
 	
 	@Column(name="nbn_unidad_id")//cambio
 	private int idUnidad;	
@@ -42,7 +45,7 @@ public class Bien implements Serializable {
 	@Column(name="cbn_codigo")
 	private String codigo;	
 	
-	@Column(name="dbn_precio_prom", columnDefinition="Decimal(10,2) default '1.00'")
+	@Column(name="dbn_precio_prom", columnDefinition="Decimal(10,2) default 1.00")
 	private double precioProm;
 	
 	@Column(name="nbn_ejercicio")
@@ -89,13 +92,13 @@ public class Bien implements Serializable {
 		this.partida = partida;
 	}
 
-	public int getIdPartida() {
+	/*public int getIdPartida() {
 		return idPartida;
 	}
 
 	public void setIdPartida(int idPartida) {
 		this.idPartida = idPartida;
-	}
+	}*/
 
 	public int getIdUnidad() {
 		return idUnidad;

@@ -73,7 +73,7 @@ function getReporte(){
 	var unidad_organica = $("#unidad_organica").val(); 
 	var tipo = $("#tipo").val(); 
 	
-	var url = '/existencias2/reporte/getlista/'+ano+'/'+mes+'/'+unidad_organica+'/'+tipo;
+	var url = '/sistalimentos2/reporte/getlista/'+ano+'/'+mes+'/'+unidad_organica+'/'+tipo;
 	//loading gif
 	//var data = {}
 	$("#grilla_reporte").load(url);
@@ -81,9 +81,9 @@ function getReporte(){
 }
 function reporte(fecinicio,idperiodo,ano){
 	if($("#unidad_organica").val()=="31"){
-		var url ='/existencias2/reporte/excel2/'+$("#dropdown_mes").val()+'/'+ano+'/'+idperiodo;
+		var url ='/sistalimentos2/reporte/excel2/'+$("#dropdown_mes").val()+'/'+ano+'/'+idperiodo;
 	}else{
-		var url ='/existencias2/reporte/excel3/'+$("#dropdown_mes").val()+'/'+ano+'/'+idperiodo;
+		var url ='/sistalimentos2/reporte/excel3/'+$("#dropdown_mes").val()+'/'+ano+'/'+idperiodo;
 	}
 	
 	window.open(url, '_blank');

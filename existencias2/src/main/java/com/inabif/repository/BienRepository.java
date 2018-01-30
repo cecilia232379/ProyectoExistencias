@@ -33,6 +33,8 @@ public interface BienRepository extends JpaRepository<Bien,Serializable>{
 	
 	@Query(value=QUERY_REGISTROS_BY_YEAR_1,nativeQuery=true)	
 	List<Bien> findBienesByYear(@Param("ano") int ano);
+
+	public abstract Bien findByIdBien(int id);
 	
 	//public abstract Bien findByIdbien(int idbien);
 	

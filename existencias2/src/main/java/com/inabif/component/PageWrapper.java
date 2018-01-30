@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 
 public class PageWrapper<T> {
     public static final int MAX_PAGE_ITEM_DISPLAY = 5;

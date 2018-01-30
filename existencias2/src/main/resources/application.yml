@@ -11,7 +11,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update #create-drop
       naming:
         strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
@@ -37,7 +37,7 @@ security:
       prefer-token-info: true
       service-id: resource
 server:
-  port: 8084
+  port: 8077
   contextPath: /existencias2
 
 

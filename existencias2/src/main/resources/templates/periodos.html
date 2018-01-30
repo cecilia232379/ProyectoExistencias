@@ -72,7 +72,7 @@ $(document).ready(function() {
     });
 });
 	function getPeriodosByYearAnMonth(year,month){
-		var url = '/existencias2/periodo/listar/'+year+"/"+month;
+		var url = '/sistalimentos2/periodo/listar/'+year+"/"+month;
 		//loading gif
 		//var data = {}
 		$("#grilla_periodo").load(url);
@@ -80,7 +80,7 @@ $(document).ready(function() {
 	}
 
 function getPeriodosByYear(year){
-	var url = '/existencias2/periodo/listar/'+year;
+	var url = '/sistalimentos2/periodo/listar/'+year;
 	//loading gif
 	//var data = {}
 	$("#grilla_periodo").load(url);

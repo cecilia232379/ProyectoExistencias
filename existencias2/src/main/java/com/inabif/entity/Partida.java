@@ -12,12 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name="txpartidas")
-public class Partida implements Serializable {
+public class Partida implements Serializable{
 
 	public Partida(){
 		bienes = new ArrayList<Bien>();
@@ -25,7 +25,9 @@ public class Partida implements Serializable {
 	
 	@Id
 	@Column(name="npar_partida_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	 @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDA_SEQ")
+    @SequenceGenerator(sequenceName = "TXPARTIDAS_SEQ", allocationSize = 1, name = "PARTIDA_SEQ")
 	private Long idPartida;	
 		
 	@OneToMany(mappedBy="partida",fetch = FetchType.LAZY, cascade = CascadeType.ALL)//una partida con muchos bienes
