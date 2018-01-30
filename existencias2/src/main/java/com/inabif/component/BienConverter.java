@@ -13,16 +13,20 @@ public class BienConverter {
 	public Bien convertBienModel2Bien(BienModel bienModel) {
 
 		Bien bien = new Bien();
-		/*bien.setIdbien(bienModel.getIdbien());
-		bien.setIdpartida(bienModel.getIdpartida());
+		bien.setIdBien(bienModel.getIdBien());
+		bien.setPartida(bienModel.getPartida());
+		bien.setIdUnidad(bienModel.getIdUnidad());
+		bien.setIdTipoBien(bienModel.getIdTipoBien());
 		bien.setDescripcion(bienModel.getDescripcion());
 		bien.setCodigo(bienModel.getCodigo());
-		bien.setUnidad(bienModel.getUnidad());
-		bien.setTipo(bienModel.getTipo());
-		bien.setPrecioprom(bienModel.getPrecioprom());
-		bien.setEjercicio(bienModel.getEjercicio());*/
+		bien.setPrecioProm(bienModel.getPrecioProm());
+		bien.setEjercicio(bienModel.getEjercicio());
+		bien.setFechaCreacion(bienModel.getFechaCreacion());
+		bien.setHoraCreacion(bienModel.getHoraCreacion());
+		bien.setFechaModificacion(bienModel.getFechaModificacion());
+		bien.setHoraModificacion(bienModel.getHoraModificacion());
+		bien.setUsuario(bienModel.getUsuario());
 		
-		//bien.setPartida((Partida) bienModel.getPartida());
 	    return bien;
 		
 	} 
@@ -31,16 +35,20 @@ public class BienConverter {
 	public BienModel convertBien2BienModel(Bien bien) {
 		BienModel bienModel = new BienModel();
 		
-		/*bienModel.setIdbien(bien.getIdbien());
-		bienModel.setIdpartida(bien.getIdpartida());
+		bienModel.setIdBien(bien.getIdBien());
+		bienModel.setPartida(bien.getPartida());
+		bienModel.setIdUnidad(bien.getIdUnidad());
+		bienModel.setIdTipoBien(bien.getIdTipoBien());
 		bienModel.setDescripcion(bien.getDescripcion());
 		bienModel.setCodigo(bien.getCodigo());
-		bienModel.setUnidad(bien.getUnidad());
-		bienModel.setTipo(bien.getTipo());
-		bienModel.setPrecioprom(bien.getPrecioprom());
-		bienModel.setEjercicio(bien.getEjercicio());*/
+		bienModel.setPrecioProm(bien.getPrecioProm());
+		bienModel.setEjercicio(bien.getEjercicio());
+		bienModel.setFechaCreacion(bien.getFechaCreacion());
+		bienModel.setHoraCreacion(bien.getHoraCreacion());
+		bienModel.setFechaModificacion(bien.getFechaModificacion());
+		bienModel.setHoraModificacion(bien.getHoraModificacion());
+		bienModel.setUsuario(bien.getUsuario());
 		
-		//bienModel.setPartida((Partida)bien.getPartida());
 		return bienModel;	
 	}
 }

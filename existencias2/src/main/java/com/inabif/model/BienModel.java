@@ -1,79 +1,151 @@
 package com.inabif.model;
 
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.inabif.entity.Partida;
 
 public class BienModel {
 	
 	@Override
 	public String toString() {
-		return "BienModel [idbien=" + idbien + ", idpartida=" + idpartida + ", descripcion="
-				+ descripcion + ", codigo=" + codigo + ", unidad=" + unidad + ", ejercicio=" + ejercicio+ ", tipo=" + tipo
-				+ ", precioprom=" + precioprom + "]";
+		return "BienModel [idBien=" + idBien + ", idUnidad=" + idUnidad + ", idTipoBien="
+				+ idTipoBien + ", codigo=" + codigo + ", idUnidad=" + idUnidad + ", ejercicio=" + ejercicio
+				+ ", precioProm=" + precioProm + "]";
 	}
 	
-	private int idbien;
-	private String idpartida;
-	private String descripcion;
-	private String codigo;
-	private String unidad;
-	private String tipo;
-	private String precioprom;
-	private String ejercicio;
+	private Long idBien;	
+
 	private Partida partida;
 	
+	private int idUnidad;
+	
+	private int idTipoBien;
+	
+	private String descripcion;
+	
+	private String codigo;
+	
+	private double precioProm;
+	
+	private int ejercicio;
+	
+	private String fechaCreacion;
+	
+	private String horaCreacion;
+	
+	private String fechaModificacion;
+	
+	private String horaModificacion;
+	
+	private String usuario;
+
+	public Long getIdBien() {
+		return idBien;
+	}
+
+	public void setIdBien(Long idBien) {
+		this.idBien = idBien;
+	}
+
 	public Partida getPartida() {
 		return partida;
 	}
+
 	public void setPartida(Partida partida) {
 		this.partida = partida;
 	}
-	public int getIdbien() {
-		return idbien;
+
+	public int getIdUnidad() {
+		return idUnidad;
 	}
-	public void setIdbien(int idbien) {
-		this.idbien = idbien;
+
+	public void setIdUnidad(int idUnidad) {
+		this.idUnidad = idUnidad;
 	}
-	public String getIdpartida() {
-		return idpartida;
+
+	public int getIdTipoBien() {
+		return idTipoBien;
 	}
-	public void setIdpartida(String idpartida) {
-		this.idpartida = idpartida;
+
+	public void setIdTipoBien(int idTipoBien) {
+		this.idTipoBien = idTipoBien;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 	public String getCodigo() {
 		return codigo;
 	}
+
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-	public String getUnidad() {
-		return unidad;
+
+	public double getPrecioProm() {
+		return precioProm;
 	}
-	public void setUnidad(String unidad) {
-		this.unidad = unidad;
+
+	public void setPrecioProm(double precioProm) {
+		this.precioProm = precioProm;
 	}
-	public String getTipo() {
-		return tipo;
-	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-	public String getPrecioprom() {
-		return precioprom;
-	}
-	public void setPrecioprom(String precioprom) {
-		this.precioprom = precioprom;
-	}
-	public String getEjercicio() {
+
+	public int getEjercicio() {
 		return ejercicio;
 	}
-	public void setEjercicio(String ejercicio) {
+
+	public void setEjercicio(int ejercicio) {
 		this.ejercicio = ejercicio;
+	}
+
+	public String getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(String fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getHoraCreacion() {
+		return horaCreacion;
+	}
+
+	public void setHoraCreacion(String horaCreacion) {
+		this.horaCreacion = horaCreacion;
+	}
+
+	public String getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(String fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	public String getHoraModificacion() {
+		return horaModificacion;
+	}
+
+	public void setHoraModificacion(String horaModificacion) {
+		this.horaModificacion = horaModificacion;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 	
 	

@@ -25,7 +25,7 @@ public interface BienRepository extends JpaRepository<Bien,Serializable>{
             + "FROM TXBIEN b INNER JOIN b.partida p "
             + "WHERE b.ejercicio = :ano";*/
 	
-	public final static String QUERY_REGISTROS_BY_YEAR_1 = "select * from TXBIEN b where b.EJERCICIO = :ano";
+	public final static String QUERY_REGISTROS_BY_YEAR_1 = "select * from TXBIENES b where b.NBN_EJERCICIO = :ano";
 	
 	public final static String QUERY_REGISTROS_BY_YEAR_2 = "SELECT * "
             + "FROM TXBIEN b LEFT JOIN TXPARTIDA p ON b.IDPARTIDA = p.PARTIDA "
