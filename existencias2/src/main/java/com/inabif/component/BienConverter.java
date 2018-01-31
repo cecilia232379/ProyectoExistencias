@@ -15,8 +15,8 @@ public class BienConverter {
 		Bien bien = new Bien();
 		bien.setIdBien(bienModel.getIdBien());
 		bien.setPartida(bienModel.getPartida());
-		bien.setIdUnidad(bienModel.getIdUnidad());
-		bien.setIdTipoBien(bienModel.getIdTipoBien());
+		bien.setMedida(bienModel.getMedida());
+		bien.setTipobien(bienModel.getTipobien());
 		bien.setDescripcion(bienModel.getDescripcion());
 		bien.setCodigo(bienModel.getCodigo());
 		bien.setPrecioProm(bienModel.getPrecioProm());
@@ -37,8 +37,8 @@ public class BienConverter {
 		
 		bienModel.setIdBien(bien.getIdBien());
 		bienModel.setPartida(bien.getPartida());
-		bienModel.setIdUnidad(bien.getIdUnidad());
-		bienModel.setIdTipoBien(bien.getIdTipoBien());
+		bienModel.setMedida(bien.getMedida());
+		bienModel.setTipobien(bien.getTipobien());
 		bienModel.setDescripcion(bien.getDescripcion());
 		bienModel.setCodigo(bien.getCodigo());
 		bienModel.setPrecioProm(bien.getPrecioProm());

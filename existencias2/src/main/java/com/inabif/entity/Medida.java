@@ -16,54 +16,54 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="txpartida")
-public class Partida implements Serializable{
+@Table(name="txmedida")
+public class Medida implements Serializable{
 
-	public Partida(){
+	public Medida(){
 		bienes = new ArrayList<Bien>();
 	}
 	
 	@Id
-	@Column(name="idpartida")
+	@Column(name="idmedida")
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	 @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDA_SEQ")
-    @SequenceGenerator(sequenceName = "TXPARTIDAS_SEQ", allocationSize = 1, name = "PARTIDA_SEQ")
-	private Long idPartida;	
+	 @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEDIDA_SEQ")
+    @SequenceGenerator(sequenceName = "TXMEDIDAS_SEQ", allocationSize = 1, name = "MEDIDA_SEQ")
+	private Long idMedida;	
 		
-	@OneToMany(mappedBy="partida",fetch = FetchType.LAZY, cascade = CascadeType.ALL)//una partida con muchos bienes
-	private List<Bien> bienes;	//mappedBy se pone el combre del atributo que relaciona en la otra clase. 	private Partida partida;
+	@OneToMany(mappedBy="medida",fetch = FetchType.LAZY, cascade = CascadeType.ALL)//una unidad de medida con muchos bienes
+	private List<Bien> bienes;	//mappedBy se pone el Nombre del atributo que relaciona en la otra clase. 	private Partida partida;
 
-	@Column(name="parpartidacod")
-	private String partidaCod;
+	@Column(name="medabr")
+	private String medidaAbr;
 	
-	@Column(name="pardescripcion")
+	@Column(name="meddescripcion")
 	private String descripcion;
 
-	@Column(name="parfeccreacion")
+	@Column(name="medfeccreacion")
 	private String fechaCreacion;
 	
 	//@Temporal(TemporalType.TIME)
-	@Column(name="parhorcreacion")
+	@Column(name="medhorcreacion")
 	//@DateTimeFormat(pattern="HHmmss")
 	private String horaCreacion;
 	
 	//@NotEmpty
-	@Column(name="parfecmodificacion")
+	@Column(name="medfecmodificacion")
 	private String fechaModificacion;
 	
 	//@NotEmpty
-	@Column(name="parhormodificacion")
+	@Column(name="medhormodificacion")
 	private String horaModificacion;
 	
-	@Column(name="parusuario")
+	@Column(name="medusuario")
 	private String usuario;
 
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	public String toString() {
-	      return "TXPARTIDA{" +
-	              "partida=" + partidaCod +
+	      return "TXMEDIDA{" +
+	              "medidaAbr=" + medidaAbr +
 	              ", bienes=" + bienes +
 	              '}';
 	}
@@ -79,26 +79,26 @@ public class Partida implements Serializable{
 
 	public void setBienes(List<Bien> bienes) {
 		this.bienes = bienes;
+	}	
+
+
+	public Long getIdMedida() {
+		return idMedida;
 	}
 
 
-	public Long getIdPartida() {
-		return idPartida;
+	public void setIdMedida(Long idMedida) {
+		this.idMedida = idMedida;
 	}
 
 
-	public void setIdPartida(Long idPartida) {
-		this.idPartida = idPartida;
+	public String getMedidaAbr() {
+		return medidaAbr;
 	}
 
 
-	public String getPartidaCod() {
-		return partidaCod;
-	}
-
-
-	public void setPartidaCod(String partidaCod) {
-		this.partidaCod = partidaCod;
+	public void setMedidaAbr(String medidaAbr) {
+		this.medidaAbr = medidaAbr;
 	}
 
 

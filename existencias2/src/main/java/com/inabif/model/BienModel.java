@@ -7,24 +7,26 @@ import javax.persistence.ManyToOne;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.inabif.entity.Medida;
 import com.inabif.entity.Partida;
+import com.inabif.entity.Tipobien;
 
 public class BienModel {
 	
 	@Override
 	public String toString() {
-		return "BienModel [idBien=" + idBien + ", idUnidad=" + idUnidad + ", idTipoBien="
-				+ idTipoBien + ", codigo=" + codigo + ", idUnidad=" + idUnidad + ", ejercicio=" + ejercicio
+		return "BienModel [idBien=" + idBien + ", medida=" + medida + ", tipobien="
+				+ tipobien + ", codigo=" + codigo + ", ejercicio=" + ejercicio
 				+ ", precioProm=" + precioProm + "]";
-	}
-	
+	}	
+
 	private Long idBien;	
 
 	private Partida partida;
 	
-	private int idUnidad;
+	private Medida medida;
 	
-	private int idTipoBien;
+	private Tipobien tipobien;
 	
 	private String descripcion;
 	
@@ -59,21 +61,37 @@ public class BienModel {
 	public void setPartida(Partida partida) {
 		this.partida = partida;
 	}
-
-	public int getIdUnidad() {
+	
+	/*public int getIdUnidad() {
 		return idUnidad;
 	}
 
 	public void setIdUnidad(int idUnidad) {
 		this.idUnidad = idUnidad;
+	}*/
+
+	public Medida getMedida() {
+		return medida;
 	}
 
-	public int getIdTipoBien() {
+	public void setMedida(Medida medida) {
+		this.medida = medida;
+	}
+
+	/*public int getIdTipoBien() {
 		return idTipoBien;
 	}
 
 	public void setIdTipoBien(int idTipoBien) {
 		this.idTipoBien = idTipoBien;
+	}*/
+	
+	public Tipobien getTipobien() {
+		return tipobien;
+	}
+
+	public void setTipobien(Tipobien tipobien) {
+		this.tipobien = tipobien;
 	}
 
 	public String getDescripcion() {
