@@ -21,8 +21,7 @@ public class Bien  implements Serializable{
 
 	@Id
 	@NotEmpty
-	@Column(name="idbien")
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idbien")	
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BIEN_SEQ")
     @SequenceGenerator(sequenceName = "TXBIENES_SEQ", allocationSize = 1, name = "BIEN_SEQ")
 	private Long idBien;	
@@ -35,16 +34,7 @@ public class Bien  implements Serializable{
 	
 	@ManyToOne(fetch = FetchType.LAZY)//muchos bienes pueden tener un mismo tipo de bien, y un mismo tipo de bien puede abarcar muchos bienes
 	private Tipobien tipobien;
-			
-	//@Column(name="nbn_partida_id")
-	//private int idPartida;
-	
-	//@Column(name="nbn_unidad_id")//cambio
-	//private int idUnidad;	
-	
-	//@Column(name="nbn_tipo_bien_id")//cambio
-	//private int idTipoBien;
-			
+				
 	@Column(name="biendescripcion")
 	private String descripcion;
 
@@ -79,6 +69,15 @@ public class Bien  implements Serializable{
 	
 	@Column(name="bienusuario")
 	private String usuario;
+	
+	//@Column(name="nbn_partida_id")
+		//private int idPartida;
+		
+		//@Column(name="nbn_unidad_id")//cambio
+		//private int idUnidad;	
+		
+		//@Column(name="nbn_tipo_bien_id")//cambio
+		//private int idTipoBien;
 
 	private static final long serialVersionUID = 1L;
 

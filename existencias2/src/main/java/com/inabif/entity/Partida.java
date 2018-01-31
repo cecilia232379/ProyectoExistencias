@@ -25,8 +25,7 @@ public class Partida implements Serializable{
 	
 	@Id
 	@Column(name="idpartida")
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	 @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDA_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDA_SEQ")
     @SequenceGenerator(sequenceName = "TXPARTIDAS_SEQ", allocationSize = 1, name = "PARTIDA_SEQ")
 	private Long idPartida;	
 		
@@ -42,9 +41,7 @@ public class Partida implements Serializable{
 	@Column(name="parfeccreacion")
 	private String fechaCreacion;
 	
-	//@Temporal(TemporalType.TIME)
 	@Column(name="parhorcreacion")
-	//@DateTimeFormat(pattern="HHmmss")
 	private String horaCreacion;
 	
 	//@NotEmpty
